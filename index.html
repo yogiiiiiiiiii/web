@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Mark Sheet Evaluation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div id="step1" class="step">
+            <h2>Enter Number of Students and Topics</h2>
+            <form id="numStudentsForm">
+                <label for="numStudents">Number of Students:</label>
+                <input type="number" id="numStudents" name="numStudents" min="1" required>
+                <label for="numTopics">Number of Topics:</label>
+                <input type="number" id="numTopics" name="numTopics" min="1" required>
+                <button type="button" onclick="generateTopics()">Generate Topics</button>
+            </form>
+        </div>
+        
+        <div id="step2" class="step" style="display: none;">
+            <h2>Enter Details for Each Topic</h2>
+            <form id="topicsForm">
+                <div id="topicsContainer"></div>
+                <button type="button" onclick="generateQuestionForms()">Start Evaluation</button>
+            </form>
+        </div>
+
+        <div id="step3" class="step" style="display: none;">
+            <h2 id="studentTitle"></h2>
+            <div id="questionsContainer">
+                <!-- Questions for each topic will be dynamically generated here -->
+            </div>
+            <div class="button-container">
+                <button type="button" onclick="prevTopic()">Previous Topic</button>
+                <button type="button" onclick="nextTopic()">Next Topic</button>
+            </div>
+        </div>
+
+        <div id="report" class="step" style="display: none;">
+            <h2>Report</h2>
+            <div id="reportContainer"></div>
+            <button id="downloadCSV" onclick="downloadCSV()">Download CSV</button>
+            <button id="downloadGraph" onclick="downloadGraph()">Download Graph</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
